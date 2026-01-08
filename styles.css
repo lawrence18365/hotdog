@@ -209,7 +209,7 @@ img { max-width: 100%; display: block; }
 .btn-cta:hover { background: #fff; }
 
 /* 2025 CTA styles */
-.btn-primary { background: var(--red-600); color: #fff; border: 2px solid var(--navy-900); padding: .9rem 1.2rem; border-radius: 14px; font-weight: 900; box-shadow: none; }
+.btn-primary { background: #fff; color: var(--navy-900); border: 2px solid var(--navy-900); padding: .9rem 1.2rem; border-radius: 14px; font-weight: 900; box-shadow: none; }
 .btn-primary:hover { filter: brightness(0.98); transform: translateY(-1px); }
 .btn-primary:active { transform: translateY(0); }
 .btn-primary:focus-visible { outline: 3px solid rgba(70,143,149,.4); outline-offset: 3px; }
@@ -364,7 +364,7 @@ img { max-width: 100%; display: block; }
 .hero-highlights, .highlight-badge { display: none !important; }
 
 /* Sticker stack (right column) */
-.hero-visual, .sticker, .sticker-shadow, .sticker-inner { display: none !important; }
+.sticker, .sticker-shadow, .sticker-inner { display: none !important; }
 
 .photo-card { display: none !important; }
 

@@ -296,8 +296,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       if (e.isIntersecting) e.target.classList.add('in');
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.card, .about, .reviews, .gallery, .location, .faq, .loyalty, .highlights .card').forEach(el=>{
-    el.classList.add('reveal');
+  
+  // Select specific existing components AND any manually tagged .reveal elements
+  const targets = document.querySelectorAll('.card, .about, .reviews, .gallery, .location, .faq, .loyalty, .highlights .card, .reveal');
+  
+  targets.forEach(el=>{
+    el.classList.add('reveal'); // Ensure class exists (idempotent)
     obs.observe(el);
   });
 })();

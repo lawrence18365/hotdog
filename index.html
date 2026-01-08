@@ -1,528 +1,1069 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Funky Franks – Kimberly, WI | Hot Dogs, Fries, and More</title>
-    <meta name="description" content="Funky Franks in Kimberly, WI. Build your own dog or try our Chicago Dog and Mac N Cheese Dog. Order online for pickup.">
 
-    <!-- Fonts: Display + UI -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Funky Franks – Gourmet Hot Dogs in Kimberly, WI</title>
+  <meta name="description"
+    content="Experience the funkiest hot dogs in Wisconsin. Vienna Beef, loaded fries, and crazy good combinations. Visit us in Kimberly!">
 
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" href="logo.jpg" sizes="any" />
-    <link rel="preload" as="image" href="frank_in_reasturant_with_hotdogs.webp" fetchpriority="high" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800;900&family=Fredoka+One&family=Inter:wght@400;600;700;900&family=Permanent+Marker&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <meta property="og:title" content="Funky Franks – Kimberly, WI" />
-    <meta property="og:description" content="Create your perfect dog or savor our signature flavors. Order online." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://funkyfrankswi.com/" />
-    <meta property="og:image" content="logo.jpg" />
-    <meta name="theme-color" content="#579FA0" />
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Funky Franks – Kimberly, WI">
-    <meta name="twitter:description" content="Build your own hot dog or grab a Chicago Dog. Order online.">
-    <meta name="twitter:image" content="logo.jpg">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="logo.jpg" sizes="any" />
 
-    <link rel="apple-touch-icon" href="logo.jpg">
+  <meta property="og:title" content="Funky Franks – Kimberly, WI" />
+  <meta property="og:description" content="Gourmet hot dogs, loaded fries, and good vibes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://funkyfrankswi.com/" />
+  <meta property="og:image" content="logo.jpg" />
+  <meta name="theme-color" content="#DA0F32" />
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Restaurant",
-      "name": "Funky Franks - Kimberly",
-      "servesCuisine": "Hot Dogs",
-      "telephone": "+1-920-415-6044",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "700 Schelfhout Lane Suite A",
-        "addressLocality": "Kimberly",
-        "addressRegion": "WI",
-        "postalCode": "54136",
-        "addressCountry": "US"
-      },
-      "url": "https://funkyfrankswi.com/",
-      "sameAs": [
-        "https://funkyfrankswi.com/order/funkyfranks"
-      ]
+  <style>
+    /* Index-specific "Advanced" Styles */
+    :root {
+      --hero-bg: #FBFAEA;
+      --hero-text: #151630;
+      --hero-accent: #DA0F32;
+      --hero-pop: #FCE254;
     }
-    </script>
-  </head>
-  <body>
-    <!-- Preloader -->
-    <div id="preloader" class="preloader">
-      <div class="preloader-content">
-        <div class="preloader-counter">
-          <span id="counter">0</span>%
-        </div>
-        <div class="preloader-logo">
-          <img src="logo.jpg" alt="Funky Franks" />
-        </div>
+
+    body {
+      overflow-x: hidden;
+      /* Prevent horizontal scroll from effects */
+      overscroll-behavior: none; /* Prevent scroll bouncing/overscroll */
+    }
+
+    /* Hero Bleed Wrapper */
+    .hero-bleed-wrapper {
+      position: relative;
+      background: var(--hero-bg);
+      overflow: hidden;
+    }
+
+    /* Advanced Hero - 1080p Optimized */
+    .index-hero {
+      position: relative;
+      min-height: 85vh; /* Tightened from 100vh */
+      /* Full viewport height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* background: var(--hero-bg); REMOVED to allow bleed */
+      padding-top: 60px; /* Tightened from 80px */
+      /* Header offset */
+    }
+
+    /* Cinematic Background Texture - Moved to wrapper */
+    .hero-bleed-wrapper::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+      background-size: 300px;
+      opacity: 0.3;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Animated Background Blobs - Now in wrapper */
+    .hero-bg-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      animation: pulseBlob 10s infinite alternate ease-in-out;
+    }
+
+    .blob-1 {
+      top: -5%;
+      left: -5%;
+      width: 50vw;
+      height: 50vw;
+      background: var(--hero-pop);
+    }
+
+    .blob-2 {
+      top: 30%;
+      right: -10%;
+      width: 60vw;
+      height: 60vw;
+      background: #468F95;
+      animation-delay: -5s;
+    }
+
+    .blob-3 {
+      top: 15%;
+      left: 30%;
+      width: 30vw;
+      height: 30vw;
+      background: var(--hero-accent);
+      opacity: 0.15;
+    }
+
+    .blob-4 {
+      bottom: -10%;
+      left: -10%;
+      width: 50vw;
+      height: 50vw;
+      background: var(--hero-pop);
+      opacity: 0.3;
+      animation-delay: -3s;
+    }
+
+    .blob-5 {
+      bottom: 10%;
+      right: 10%;
+      width: 40vw;
+      height: 40vw;
+      background: #468F95;
+      opacity: 0.2;
+      animation-delay: -7s;
+    }
+
+    .blob-6 {
+      top: 60%;
+      left: -5%;
+      width: 45vw;
+      height: 45vw;
+      background: var(--hero-accent);
+      opacity: 0.15;
+      filter: blur(120px);
+    }
+
+    .blob-7 {
+      top: 75%;
+      right: -5%;
+      width: 50vw;
+      height: 50vw;
+      background: var(--hero-pop);
+      opacity: 0.2;
+    }
+
+    .blob-6 {
+      top: 60%;
+      left: -5%;
+      width: 45vw;
+      height: 45vw;
+      background: var(--hero-accent);
+      opacity: 0.15;
+      filter: blur(120px);
+    }
+
+    .blob-7 {
+      top: 75%;
+      right: -5%;
+      width: 50vw;
+      height: 50vw;
+      background: var(--hero-pop);
+      opacity: 0.2;
+    }
+
+    @keyframes pulseBlob {
+      0% {
+        transform: scale(1);
+      }
+
+      100% {
+        transform: scale(1.1);
+      }
+    }
+
+    /* Hero Grid Layout */
+    .hero-container {
+      width: 100%;
+      max-width: 1600px;
+      /* Wider for 1920px screens */
+      margin: 0 auto;
+      padding: 0 4rem;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+      height: 100%;
+    }
+
+    /* Massive Typography Stack */
+    .hero-content {
+      position: relative;
+      z-index: 20;
+      /* Ensure text is above blobs */
+    }
+
+    .hero-eyebrow {
+      font-family: "Permanent Marker", cursive;
+      color: var(--hero-accent);
+      font-size: clamp(1.5rem, 2vw, 2.5rem);
+      transform: rotate(-3deg);
+      display: inline-block;
+      margin-bottom: 0.5rem; /* Tightened from 1rem */
+      text-shadow: 2px 2px 0px #fff;
+      /* White outline for readability */
+    }
+
+    .hero-headline {
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-weight: 900;
+      font-size: clamp(4rem, 9vw, 8.5rem);
+      /* Massive on 1080p */
+      line-height: 0.85;
+      color: var(--hero-text);
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      position: relative;
+      filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.5));
+      /* Glow for contrast */
+      margin: 0; /* Removed default h1 margins */
+    }
+
+    .hero-headline .line-1 {
+      display: block;
+      position: relative;
+      left: -0.2em;
+    }
+
+    .hero-headline .line-2 {
+      display: block;
+      color: var(--hero-accent);
+      text-shadow: 4px 4px 0px var(--hero-text);
+      /* Solid shadow */
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-headline .line-3 {
+      display: block;
+      font-size: 0.6em;
+      margin-top: 0.2em;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+      color: #151630;
+    }
+
+    .hero-desc {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #151630;
+      max-width: 500px;
+      margin: 0.5rem 0 1.5rem; /* Tightened further from 1.5rem 0 2rem */
+      line-height: 1.4; /* Slightly tighter line height */
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+      /* Readability boost */
+    }
+
+    /* 3D Visual Stack - REMOVED 3D */
+    .hero-visual {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 15;
+    }
+
+    .hero-card-wrap {
+      position: relative;
+      width: 90%;
+      max-width: 650px;
+      aspect-ratio: 1/1.1;
+    }
+
+    .hero-img-card {
+      position: absolute;
+      inset: 0;
+      border-radius: 40px;
+      overflow: hidden;
+      border: 6px solid var(--hero-text);
+      box-shadow:
+        30px 30px 0 var(--hero-pop),
+        36px 36px 0 var(--hero-text);
+      /* transform: translateZ(20px); Removed Z translation to simplify stacking */
+      background: var(--cream);
+      /* Fallback color */
+      z-index: 10;
+    }
+
+    .hero-img-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      /* Eliminate inline spacing */
+    }
+
+    /* Floating Badges - Independent Z-planes */
+    .float-badge {
+      position: absolute;
+      padding: 1rem 2rem;
+      background: #fff;
+      border: 4px solid var(--hero-text);
+      border-radius: 100px;
+      font-family: "Fredoka One";
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      color: var(--hero-text);
+      box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+      z-index: 2000;
+      /* Highest priority */
+      pointer-events: auto;
+    }
+
+    .badge-beef {
+      top: 5%;
+      left: -10%;
+      background: var(--hero-pop);
+      transform: rotate(-10deg);
+    }
+
+    .badge-open {
+      bottom: 10%;
+      right: -5%;
+      background: var(--hero-accent);
+      color: #fff;
+      transform: rotate(8deg);
+    }
+
+    /* Decorative Sprinkles */
+    .sprinkle {
+      position: absolute;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* Removed sp-mustard */
+
+
+    /* CTA Group */
+    .cta-group {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .btn-hero-xl {
+      background: var(--hero-text);
+      color: #fff;
+      font-weight: 900;
+      font-size: 1.25rem;
+      padding: 1.25rem 2.5rem;
+      border-radius: 16px;
+      text-decoration: none;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 2px solid var(--hero-text);
+    }
+
+    .btn-hero-xl:hover {
+      transform: scale(1.05) translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-hero-outline {
+      background: transparent;
+      color: var(--hero-text);
+      font-weight: 900;
+      font-size: 1.25rem;
+      padding: 1.25rem 2.5rem;
+      border-radius: 16px;
+      text-decoration: none;
+      border: 3px solid var(--hero-text);
+      transition: all 0.2s ease;
+    }
+
+    .btn-hero-outline:hover {
+      background: rgba(21, 22, 48, 0.05);
+    }
+
+    /* Rest of Styles (Bento, SEO, etc.) maintained for consistency */
+    .marquee-strip {
+      background: var(--hero-text);
+      color: #fff;
+      padding: 1.5rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+      border-top: 5px solid var(--hero-pop);
+      border-bottom: 5px solid var(--hero-pop);
+      transform: rotate(-1.5deg) scale(1.02);
+      margin-top: 3rem;
+      /* Adjusted to move down more */
+      margin-bottom: -6rem;
+      /* Pull next section up for overlap */
+      z-index: 100;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .marquee-content {
+      display: inline-block;
+      animation: marquee 30s linear infinite;
+      font-family: "Bricolage Grotesque";
+      font-weight: 900;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+    }
+
+    .marquee-content span {
+      margin: 0 4rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .marquee-content span::after {
+
+      content: "\f005";
+      /* FontAwesome star unicode */
+
+      font-family: "Font Awesome 6 Free";
+
+      font-weight: 900;
+
+      color: var(--hero-pop);
+
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* BENTO & Content Styles from previous version */
+    .bento-section {
+      padding: 8rem 0;
+      background: #fff;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(2, minmax(320px, auto));
+      gap: 2rem;
+    }
+
+    .bento-card {
+      background: #FBFAEA;
+      border: 4px solid #151630;
+      border-radius: 32px;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+
+    .bento-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 12px 12px 0 #151630;
+    }
+
+    .b-large {
+      grid-column: span 8;
+      background: #DA0F32;
+      color: #fff;
+    }
+
+    .b-tall {
+      grid-column: span 4;
+      grid-row: span 2;
+      background: #FCE254;
+    }
+
+    .b-med {
+      grid-column: span 4;
+      background: #468F95;
+      color: #fff;
+    }
+
+    .b-med-2 {
+      grid-column: span 4;
+      background: #151630;
+      color: #fff;
+    }
+
+    .bento-title {
+      font-family: "Bricolage Grotesque";
+      font-weight: 900;
+      font-size: 3rem;
+      line-height: 0.95;
+      margin-bottom: 1rem;
+    }
+
+    .ingredients-parallax {
+      min-height: 70vh;
+      background: #468F95;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: #fff;
+      text-align: center;
+      border-radius: 100px 100px 0 0;
+      margin-top: -50px;
+    }
+
+    .ing-text h2 {
+      font-family: "Fredoka One";
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      margin: 0;
+      text-shadow: 6px 6px 0 #151630;
+      line-height: 1;
+      position: relative;
+      z-index: 5;
+    }
+
+    .floating-ing {
+      position: absolute;
+      font-family: "Bricolage Grotesque";
+      font-size: clamp(3rem, 6vw, 6rem);
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.15);
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    .faq-section {
+      padding: 8rem 0;
+      background: #FBFAEA;
+    }
+
+    .faq-grid {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      margin-bottom: 1.5rem;
+      background: #fff;
+      border: 3px solid #151630;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      padding: 1.5rem 2.5rem;
+      font-weight: 900;
+      font-size: 1.4rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      font-size: 2rem;
+    }
+
+    .faq-item[open] summary {
+      background: #FCE254;
+      border-bottom: 3px solid #151630;
+    }
+
+    .faq-item[open] summary::after {
+      content: "−";
+    }
+
+    .faq-content {
+      padding: 2.5rem;
+      line-height: 1.6;
+      font-weight: 600;
+      color: rgba(21, 22, 48, 0.8);
+      font-size: 1.15rem;
+    }
+
+    .cta-band {
+      background: #fff;
+      color: #151630;
+      border-top: 8px solid #DA0F32;
+      padding: 6rem 0;
+    }
+
+    .cta-title {
+      font-family: "Fredoka One";
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1rem;
+      color: #151630;
+    }
+
+    @media (max-width: 1024px) {
+      .index-hero {
+        height: auto;
+        padding: 120px 0 60px;
+        min-height: auto;
+      }
+
+      .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-content {
+        margin-bottom: 4rem;
+      }
+
+      .hero-headline {
+        font-size: 3.5rem;
+      }
+
+      .cta-group {
+        justify-content: center;
+      }
+
+      .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-card-wrap {
+        margin: 0 auto;
+        width: 80%;
+      }
+
+      .bento-grid {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    /* MacBook / Laptop Optimization (1200px - 1500px width, or short heights) */
+    @media screen and (max-width: 1550px),
+    screen and (max-height: 900px) {
+      .index-hero {
+        min-height: 90vh;
+        /* Relax height constraint slightly */
+        padding-top: 70px;
+      }
+
+      .hero-container {
+        padding: 0 2rem; /* Tightened from 3rem */
+        /* Tighter side padding */
+        max-width: 1300px;
+      }
+
+      .hero-headline {
+        font-size: clamp(3.5rem, 7vw, 6.5rem);
+        /* Scale down font */
+      }
+
+      .hero-desc {
+        font-size: 1.25rem;
+        margin: 0.5rem 0 1.5rem; /* Tightened from 1.5rem 0 2rem */
+        max-width: 450px;
+      }
+
+      .btn-hero-xl,
+      .btn-hero-outline {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+      }
+
+      .hero-card-wrap {
+        max-width: 500px;
+        /* Smaller image card */
+      }
+
+      .float-badge {
+        padding: 0.8rem 1.5rem;
+        font-size: 1.1rem;
+      }
+
+      /* Adjust badge positions for smaller stage */
+      .badge-beef {
+        left: -5%;
+      }
+
+      .badge-open {
+        right: -2%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Loading Screen -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <div class="preloader-counter"><span id="counter">0</span>%</div>
+      <div class="preloader-logo">
+        <img src="logo.jpg" alt="Funky Franks" width="80" height="80">
       </div>
     </div>
+  </div>
 
-    <a class="skip-link" href="#main">Skip to main content</a>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-    <header class="site-header" id="top">
-      <div class="container header-row">
-        <a class="brand" href="index.html" aria-label="Funky Franks home">
-          <!-- Larger than header to get the “badge pops out” effect -->
-          <img src="logo.jpg" alt="Funky Franks logo" width="88" height="88" />
-          <span class="sr-only">Funky Franks</span>
-        </a>
-    
-        <!-- Desktop nav (right-aligned) -->
-        <nav id="site-nav" class="site-nav" aria-label="Primary">
-          <a href="menu.html" aria-current="page">Menu</a>
-          <a class="btn-primary" href="https://funkyfrankswi.com/order/funkyfranks"
-             target="_blank" rel="noopener" aria-label="Order online for pickup">Order Online</a>
-        </nav>
-    
-       
+  <header class="site-header" id="top">
+    <div class="container header-row">
+      <a class="brand" href="index.html" aria-label="Funky Franks home">
+        <img src="logo.jpg" alt="Funky Franks logo" width="88" height="88" />
+      </a>
+
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <a href="menu.html">Menu</a>
+        <a href="#location">Location</a>
+        <a class="btn-primary" href="https://funkyfrankswi.com/order/funkyfranks" target="_blank" rel="noopener"
+          aria-label="Order online for pickup">Order Online</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <div class="hero-bleed-wrapper">
+      <div class="hero-bg-layer">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+        <div class="blob blob-5"></div>
       </div>
-    </header>
-    
 
-    <main id="main">
-      <section class="hero hero-minimal">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow">Kimberly • Vienna Beef</p>
-            <h1 class="hero-title clean">Chicago‑style dogs, made fast.</h1>
-            <p class="hero-sub clean">Real Vienna beef. House‑made toppings. Order online—ready in minutes.</p>
-            <div class="cta-row">
-              <a class="btn-primary" href="https://funkyfrankswi.com/order/funkyfranks" target="_blank" rel="noopener" aria-label="Order online for pickup">Order Now</a>
-              <a class="link-secondary" href="menu.html">View Menu</a>
-            </div>
-            <p class="micro-trust">4.8★ on Google • Quick pickup • Build‑your‑own</p>
-          </div>
-          <div class="hero-media" aria-hidden="true">
-            <div class="sparkle sp1"></div>
-            <div class="sparkle sp2"></div>
-            <picture>
-              <source type="image/webp" srcset="frank_in_reasturant_with_hotdogs.webp" sizes="(min-width: 1024px) 520px, 90vw" />
-              <img class="crave" src="frank_in_reasturant_with_hotdogs.webp" alt="" loading="eager" fetchpriority="high" sizes="(min-width: 1024px) 520px, 90vw" />
-            </picture>
-          </div>
-        </div>
-      </section>
-
-      <section class="trust-strip" aria-label="Brand badges">
-        <div class="container trust-row">
-          <span>Vienna Beef partner</span>
-          <span>Best Chicago Dog</span>
-          <span>Local Favorite</span>
-        </div>
-      </section>
-
-      <section class="highlights" id="highlights" aria-labelledby="menu-title">
-        <div class="container">
-          <h2 id="menu-title">Menu Highlights</h2>
-          <p class="section-sub">Most‑ordered classics and quick builds.</p>
-          <div class="menu-list-pro" role="list">
-            <!-- Featured: Signature Chicago (sticker card) -->
-            <div class="mlp-item" role="listitem">
-              <div class="mlp-left">
-                <span class="mlp-label">SIGNATURE</span>
-                <div class="mlp-name">Chicago Dog</div>
-                <div class="mlp-desc">Mustard, neon relish, onion, tomato, pickle spear, sport peppers, celery salt.</div>
-                <div class="mlp-addons">Popular add-ons: bacon, sport peppers, combo.</div>
-              </div>
-              <div class="mlp-rail">
-                <div class="mlp-price">$5.50</div>
-                <a class="btn-order mlp-btn" href="https://funkyfrankswi.com/order/funkyfranks" target="_blank" rel="noopener">Order Chicago</a>
-              </div>
-            </div>
-
-            <!-- Signature: Outlaw -->
-            <div class="mlp-item" role="listitem">
-              <div class="mlp-left">
-                <span class="mlp-label">SIGNATURE</span>
-                <div class="mlp-name">The Outlaw</div>
-                <div class="mlp-desc">Cheddar sauce, BBQ pulled pork, crispy onions, sweet BBQ drizzle.</div>
-                <div class="mlp-addons">Popular add-ons: bacon, sport peppers, combo.</div>
-              </div>
-              <div class="mlp-rail">
-                <div class="mlp-price">$6.00</div>
-                <a class="btn-order mlp-btn" href="https://funkyfrankswi.com/order/funkyfranks" target="_blank" rel="noopener">Order Outlaw</a>
-              </div>
-            </div>
-
-            <!-- Custom: Build Your Own -->
-            <div class="mlp-item" role="listitem">
-              <div class="mlp-left">
-                <span class="mlp-label">CUSTOM</span>
-                <div class="mlp-name">Build Your Own</div>
-                <div class="mlp-desc">Start with Vienna beef. Add crunch, heat, or cheese.</div>
-                <div class="mlp-addons">Popular add-ons: bacon, sport peppers, combo.</div>
-              </div>
-              <div class="mlp-rail">
-                <div class="mlp-price">From $4.50</div>
-                <a class="btn-order mlp-btn" href="https://funkyfrankswi.com/order/funkyfranks" target="_blank" rel="noopener">Build Your Dog</a>
-              </div>
-            </div>
-
-            <!-- Custom: Mac N Cheese -->
-            <div class="mlp-item" role="listitem">
-              <div class="mlp-left">
-                <span class="mlp-label">CUSTOM</span>
-                <div class="mlp-name">Mac N Cheese Dog</div>
-                <div class="mlp-desc">Creamy mac piled high. Add bacon for extra.</div>
-                <div class="mlp-addons">Popular add-ons: bacon, sport peppers, combo.</div>
-              </div>
-              <div class="mlp-rail">
-                <div class="mlp-price">$4.50</div>
-                <a class="btn-order mlp-btn" href="https://funkyfrankswi.com/order/funkyfranks" target="_blank" rel="noopener">Order Mac N Cheese</a>
-              </div>
-            </div>
-          </div>
-          <div class="deal-banner" role="note">Make it a Combo (chips + drink) — save $1.50 →</div>
-          <p class="footnote">Explore the full lineup on the Menu page or order online.</p>
-        </div>
-      </section>
-
-      <section class="about why" aria-labelledby="why-title">
-        <div class="container about-grid">
-          <div class="why-copy">
-            <p class="eyebrow">Why Funky Franks</p>
-            <h2 id="why-title" class="why-title">Serious dogs. Playful brand.</h2>
-            <p class="why-support">Vienna beef. House toppings. Pickup fast.</p>
-            <ul class="why-list">
-              <li>Vienna all‑beef franks</li>
-              <li>Fast, friendly, family‑ready</li>
-              <li>Online ordering & meal deals</li>
-            </ul>
-            <p class="why-proof">4.8★ on Google • Vienna Beef partner • Ready in ~10 min</p>
-            <div class="why-actions">
-              <a class="btn-primary" href="https://funkyfrankswi.com/order/funkyfranks" target="_blank" rel="noopener">Order Now</a>
-              <a class="link-secondary" href="#faq">FAQ</a>
-            </div>
-          </div>
-          <aside class="why-right" aria-label="Build preview">
-            <div class="why-card">
-              <h3>Build Your Dog</h3>
-              <div class="chips">
-                <span>Mustard</span><span>Relish</span><span>Onion</span><span>Tomato</span><span>Pickle</span><span>Sport Peppers</span><span>Celery Salt</span><span>Bacon</span>
-              </div>
-              <p class="popular">Popular: bacon, sport peppers, combo</p>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section class="reviews proof" aria-labelledby="reviews-title">
-        <div class="container">
-          <p class="eyebrow">What folks are saying</p>
-          <h2 id="reviews-title" class="reviews-title">4.7★ from 54 Google reviews</h2>
-          <p class="reviews-sub">Fast, friendly, Chicago-style.</p>
-
-          <div class="reviews-grid">
-            <!-- Left: Aggregate card -->
-            <aside class="agg-card" aria-label="Google rating summary">
-              <div class="agg-head">
-                <div class="agg-score">4.7<span aria-hidden="true">★</span></div>
-                <div class="agg-meta">54 reviews on Google</div>
-              </div>
-              <div class="agg-bars" role="list" aria-label="Rating distribution">
-                <div class="bar" role="listitem"><span>5★</span><div class="track"><i style="width:72%"></i></div><em>72%</em></div>
-                <div class="bar" role="listitem"><span>4★</span><div class="track"><i style="width:13%"></i></div><em>13%</em></div>
-                <div class="bar" role="listitem"><span>3★</span><div class="track"><i style="width:9%"></i></div><em>9%</em></div>
-                <div class="bar" role="listitem"><span>2★</span><div class="track"><i style="width:4%"></i></div><em>4%</em></div>
-                <div class="bar" role="listitem"><span>1★</span><div class="track"><i style="width:2%"></i></div><em>2%</em></div>
-              </div>
-              <a class="agg-link" href="https://www.google.com/maps/place/Funky+Franks/@44.2615765,-88.328838,17z/data=!4m8!3m7!1s0x8803b1004fd13a85:0x39dd07320b654e54!8m2!3d44.2615765!4d-88.3262631!9m1!1b1!16s%2Fg%2F11lv57jtf5?entry=ttu&g_ep=EgoyMDI1MDkxMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Open on Google →</a>
-              <p class="agg-note">Live from Google</p>
-            </aside>
-
-            <!-- Right: three static review cards -->
-            <div class="rev-cards">
-              <article class="rev-card">
-                <header class="rev-top">
-                  <div class="avatar" aria-hidden="true">KM</div>
-                  <div class="who">
-                    <strong>Kaitlyn M.</strong>
-                    <span class="meta"><span class="guide">Local Guide</span> · Aug 2025</span>
-                  </div>
-                </header>
-                <div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                <p class="rev-body">Ordered online and my dog was ready when I walked in—super fast and friendly…</p>
-              </article>
-
-              <article class="rev-card">
-                <header class="rev-top">
-                  <div class="avatar" aria-hidden="true">BR</div>
-                  <div class="who">
-                    <strong>Ben R.</strong>
-                    <span class="meta">Jun 2025</span>
-                  </div>
-                </header>
-                <div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                <p class="rev-body">Kids loved the Mac N Cheese Dog and the staff were great with us—easy weekly lunch spot…</p>
-              </article>
-
-              <article class="rev-card wide">
-                <header class="rev-top">
-                  <div class="avatar" aria-hidden="true">MD</div>
-                  <div class="who">
-                    <strong>Marcus D.</strong>
-                    <span class="meta">May 2025</span>
-                  </div>
-                </header>
-                <div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                <p class="rev-body">Best Chicago Dog I’ve had outside the Windy City. Snappy casing and all the right toppings…</p>
-              </article>
-            </div>
-          </div>
-        </div>
-
-        <!-- AggregateRating JSON-LD (replace with live data when wired) -->
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "AggregateRating",
-          "itemReviewed": {
-            "@type": "LocalBusiness",
-            "name": "Funky Franks - Kimberly"
-          },
-          "ratingValue": "4.7",
-          "reviewCount": "54"
-        }
-        </script>
-      </section>
-
-      
-
-      <section class="location info" id="location" aria-labelledby="loc-title">
-        <div class="container loc-grid">
-          <div class="loc-left">
-            <p class="eyebrow">Location & Hours</p>
-            <h2 id="loc-title">Kimberly, WI</h2>
-            <p class="addr">
-              <a href="https://www.google.com/maps?q=700+Schelfhout+Lane+Suite+A,+Kimberly,+WI+54136" target="_blank" rel="noopener">700 Schelfhout Ln, Suite A, Kimberly, WI 54136</a>
+      <!-- 1920x1080 Optimized Hero -->
+      <section class="index-hero" id="hero">
+        <div class="hero-container">
+          <!-- Left: Content -->
+          <div class="hero-content reveal">
+            <h1 class="hero-headline">
+              <span class="line-1">Get</span>
+              <span class="line-2">Funky</span>
+              <span class="line-3">With Your Food</span>
+            </h1>
+            <p class="hero-desc">
+              We’re redefining the hot dog game in Kimberly. 100% Vienna Beef, piled high with fresh ingredients, served
+              on a poppy seed bun. It’s not just lunch; it’s a lifestyle.
             </p>
-            <p class="phone"><a href="tel:+19204156044">(920) 415-6044</a></p>
-            <div class="hours">
-              <span id="open-status" class="status" aria-live="polite">Checking hours…</span>
-              <table class="hours-table" aria-label="Weekly hours">
+            <div class="cta-group">
+              <a href="menu.html" class="btn-hero-xl">
+                See The Menu
+              </a>
+              <a href="https://funkyfrankswi.com/order/funkyfranks" target="_blank" class="btn-hero-outline">
+                Order Pickup
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: 3D Visual -->
+          <div class="hero-visual">
+            <div class="hero-card-wrap" id="tilt-card">
+              <!-- Floating badges with high z-index -->
+              <div class="float-badge badge-beef">100%<br>Beef</div>
+              <div class="float-badge badge-open">Open<br>Daily</div>
+
+              <!-- Card Image -->
+              <div class="hero-img-card">
+                <img src="gourmet-vienna-beef-hot-dog-kimberly-wi.png" alt="Funky Franks Hot Dog Experience"
+                  loading="eager" />
+              </div>
+            </div>
+
+            <!-- Decor -->
+            <div class="sprinkle"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Infinite Marquee -->
+      <div class="marquee-strip">
+        <div class="marquee-content">
+          <span>Chicago Style</span> <span>Loaded Fries</span> <span>Italian Beef</span> <span>Vienna Beef</span>
+          <span>Gourmet Toppings</span> <span>Kimberly's Best</span> <span>Family Owned</span> <span>Gourmet Hot
+            Dogs</span> <span>Chicago Style</span> <span>Loaded Fries</span> <span>Italian Beef</span> <span>Vienna
+            Beef</span>
+        </div>
+      </div>
+
+      <!-- SEO Optimization Section: The Quality -->
+      <section class="seo-feature-section" style="padding: 10rem 0 6rem; background: transparent; position: relative; z-index: 10;">
+        <div class="container">
+          <div class="seo-content-grid"
+            style="display:grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items:center;">
+            <div class="seo-text reveal">
+              <h3 style="font-family:'Fredoka One'; font-size:2.5rem; margin-bottom:1.5rem;">The Best Hot Dogs in
+                Kimberly, Wisconsin</h3>
+              <p style="font-size:1.2rem; line-height:1.7; color:rgba(21,22,48,0.8);">
+                At Funky Franks, we don't just serve hot dogs; we serve a culinary experience. Located in the heart of
+                Kimberly, WI, we've become the go-to destination for foodies and families alike searching for "the best
+                hot dogs near me."
+              </p>
+              <p style="font-size:1.2rem; line-height:1.7; color:rgba(21,22,48,0.8);">
+                Our commitment to quality starts with our meat. We exclusively serve <strong>Vienna Beef</strong>, the
+                gold standard for authentic Chicago-style hot dogs. Whether you're craving a classic Chicago Frank or one
+                of our wild signature creations, every bite is packed with premium flavor.
+              </p>
+            </div>
+            <div class="seo-image reveal">
+              <div
+                style="background: #FCE254; border-radius: 40px; padding: 15px; border: 4px solid #151630; transform: rotate(-2deg); box-shadow: 10px 10px 0 #151630;">
+                <img src="frank_in_reasturant_with_hotdogs.webp" alt="Frank in the restaurant"
+                  style="width: 100%; height: auto; border-radius: 30px; display: block; aspect-ratio: 4/3; object-fit: cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- Bento Grid / Features -->
+    <section class="bento-section" style="background: transparent; position: relative; z-index: 10;">
+      <div class="container">
+        <div class="section-heading-wrap reveal" style="text-align:center; margin-bottom:4rem;">
+          <p style="color:#DA0F32; font-weight:800; text-transform:uppercase; letter-spacing:2px;">Our Specialty</p>
+          <h2 style="font-family:'Bricolage Grotesque'; font-size:3.5rem;">The Funky Favorites</h2>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Box 1: Signature Item -->
+          <div class="bento-card b-large reveal">
+            <div>
+              <span style="font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: #FCE254;">Signature
+                Staple</span>
+              <h2 class="bento-title">Authentic Chicago Style</h2>
+              <p style="font-size: 1.3rem; font-weight: 600; max-width: 45ch; opacity: 0.95;">
+                Dragged through the garden. Poppy seed bun, neon green relish, diced onions, tomato wedges, pickle
+                spear, sport peppers, and celery salt.
+              </p>
+            </div>
+            <div style="margin-top: 2rem;">
+              <a href="menu.html#cat-signatures" class="btn"
+                style="background: #151630; color: #fff; border: none; padding: 1rem 2rem; border-radius: 12px; font-size: 1.1rem; text-decoration:none; display:inline-block;">See
+                All Signatures</a>
+            </div>
+          </div>
+
+          <!-- Box 2: Location/Hours -->
+          <div class="bento-card b-tall reveal">
+            <div>
+              <h2 class="bento-title" style="font-size: 2.5rem;">Visit Us in Kimberly</h2>
+              <div id="index-open-status" class="status open"
+                style="margin-bottom: 1.5rem; display: inline-block; padding: 0.5rem 1rem; border-radius: 10px; font-weight: 900; background:#fff; border:2px solid #151630;">
+                Checking status...</div>
+
+              <p style="font-weight: 800; font-size: 1.1rem; margin-bottom: 1rem; color: #151630;">
+                700 Schelfhout Ln, Suite A<br>Kimberly, WI 54136
+              </p>
+
+              <table class="hours-table"
+                style="background: transparent; border: none; font-size: 1rem; width: 100%; border-collapse: separate; border-spacing: 0 8px;">
                 <tbody>
-                  <tr><th>Mon</th><td>11:00 AM – 7:00 PM</td></tr>
-                  <tr><th>Tue</th><td>11:00 AM – 7:00 PM</td></tr>
-                  <tr><th>Wed</th><td>11:00 AM – 7:00 PM</td></tr>
-                  <tr><th>Thu</th><td>11:00 AM – 7:00 PM</td></tr>
-                  <tr><th>Fri</th><td>11:00 AM – 7:00 PM</td></tr>
-                  <tr><th>Sat</th><td>11:00 AM – 7:00 PM</td></tr>
-                  <tr><th>Sun</th><td>Closed</td></tr>
+                  <tr>
+                    <td style="font-weight: 800;">Mon - Sat</td>
+                    <td style="text-align: right;">11:00 AM – 7:00 PM</td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight: 800;">Sunday</td>
+                    <td style="text-align: right;">11:00 AM – 6:00 PM</td>
+                  </tr>
                 </tbody>
               </table>
-              <p class="note">Check Toast for the latest hours. Holiday hours may vary.</p>
             </div>
-            <div class="loc-actions">
-              <a class="btn-primary" href="https://funkyfrankswi.com/order/funkyfranks" target="_blank" rel="noopener">Order Now</a>
-              <a class="link-secondary" href="https://www.google.com/maps?daddr=700+Schelfhout+Lane+Suite+A,+Kimberly,+WI+54136" target="_blank" rel="noopener">Get Directions</a>
-            </div>
-          </div>
-          <div class="map-card">
-            <div class="map-wrap" aria-hidden="true">
-              <iframe title="Map to Funky Franks Kimberly" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=700+Schelfhout+Lane+Suite+A,+Kimberly,+WI+54136&output=embed"></iframe>
-            </div>
-            <p class="map-cap">700 Schelfhout Ln, Suite A • <a href="https://www.google.com/maps?daddr=700+Schelfhout+Lane+Suite+A,+Kimberly,+WI+54136" target="_blank" rel="noopener">Open in Google Maps →</a></p>
-          </div>
-        </div>
-      </section>
-
-      <section class="faq" id="faq" aria-labelledby="faq-title">
-        <div class="container">
-          <p class="eyebrow">FAQ</p>
-          <h2 id="faq-title" class="faq-title">Frequently asked questions</h2>
-          <p class="faq-sub">Can’t find it? Call <a href="tel:+19204156044">(920) 415-6044</a>.</p>
-          <div class="faq-list" role="list">
-            <details class="faq-row" role="listitem">
-              <summary class="faq-q">Do you offer online ordering?</summary>
-              <div class="faq-a"><p>Yes. Tap <strong>Order Now</strong> to place an order through Toast.</p></div>
-            </details>
-            <details class="faq-row" role="listitem">
-              <summary class="faq-q">Can I customize my hot dog?</summary>
-              <div class="faq-a"><p>Absolutely. Choose <strong>Build Your Own</strong> or add toppings to any dog at checkout.</p></div>
-            </details>
-            <details class="faq-row" role="listitem">
-              <summary class="faq-q">What are your hours?</summary>
-              <div class="faq-a"><p>Mon–Sat 11:00 AM–7:00 PM. Sun closed. Check Toast for holiday updates.</p></div>
-            </details>
-            <details class="faq-row" role="listitem">
-              <summary class="faq-q">Where are you located?</summary>
-              <div class="faq-a"><p>700 Schelfhout Ln, Suite A, Kimberly, WI. <a href="https://www.google.com/maps?daddr=700+Schelfhout+Lane+Suite+A,+Kimberly,+WI+54136" target="_blank" rel="noopener">Open in Google Maps →</a></p></div>
-            </details>
-            <details class="faq-row" role="listitem">
-              <summary class="faq-q">Do you cater?</summary>
-              <div class="faq-a"><p>Yes. Call <a href="tel:+19204156044">(920) 415-6044</a> for trays and event options.</p></div>
-            </details>
-            <details class="faq-row" role="listitem">
-              <summary class="faq-q">Allergens or gluten‑free options?</summary>
-              <div class="faq-a"><p>Ask at pickup; we’ll flag items for common allergens. Cross‑contact is possible.</p></div>
-            </details>
-          </div>
-          <script type="application/ld+json">
-          {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {"@type":"Question","name":"Do you offer online ordering?","acceptedAnswer":{"@type":"Answer","text":"Yes. Tap Order Now to place an order through Toast."}},
-              {"@type":"Question","name":"Can I customize my hot dog?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Choose Build Your Own or add toppings to any dog at checkout."}},
-              {"@type":"Question","name":"What are your hours?","acceptedAnswer":{"@type":"Answer","text":"Mon–Sat 11:00 AM–7:00 PM. Sun closed. Check Toast for holiday updates."}},
-              {"@type":"Question","name":"Where are you located?","acceptedAnswer":{"@type":"Answer","text":"700 Schelfhout Ln, Suite A, Kimberly, WI. Open in Google Maps."}},
-              {"@type":"Question","name":"Do you cater?","acceptedAnswer":{"@type":"Answer","text":"Yes. Call (920) 415-6044 for trays and event options."}},
-              {"@type":"Question","name":"Allergens or gluten‑free options?","acceptedAnswer":{"@type":"Answer","text":"Ask at pickup; we’ll flag items for common allergens. Cross‑contact is possible."}}
-            ]
-          }
-          </script>
-        </div>
-      </section>
-
-      <section class="rewards" id="rewards" aria-labelledby="rewards-title">
-        <div class="container">
-          <p class="eyebrow">Rewards</p>
-          <h2 id="rewards-title">Join Rewards. Get $5 back for every $100.</h2>
-          <p class="rewards-sub">Earn 1 point per $1. Exclusive offers. Fast checkout.</p>
-
-          <div class="rewards-card">
-            <div class="rewards-content">
-              <div class="rewards-left">
-                <ul class="rewards-benefits">
-                  <li>
-                    <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <circle cx="10" cy="10" r="10" fill="#468F95"/>
-                      <path d="m6 10 2 2 4-4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    $5 off every 100 points
-                  </li>
-                  <li>
-                    <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <circle cx="10" cy="10" r="10" fill="#468F95"/>
-                      <path d="m6 10 2 2 4-4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Members-only promos
-                  </li>
-                  <li>
-                    <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <circle cx="10" cy="10" r="10" fill="#468F95"/>
-                      <path d="m6 10 2 2 4-4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Faster re-orders
-                  </li>
-                </ul>
-                <a href="#faq" class="rewards-faq">View full Rewards FAQ →</a>
-              </div>
-
-              <div class="rewards-right">
-                <form class="rewards-form" id="rewards-form" novalidate>
-                  <div class="form-group">
-                    <label for="mobile">Mobile number</label>
-                    <input 
-                      id="mobile" 
-                      name="mobile" 
-                      type="tel" 
-                      inputmode="tel" 
-                      autocomplete="tel" 
-                      placeholder="Your mobile number" 
-                      required 
-                      aria-describedby="legal-note error-msg" 
-                    />
-                    <p class="error-msg" id="error-msg" role="status" aria-live="polite"></p>
-                  </div>
-                  <button class="btn btn-rewards" type="submit">
-                    <span class="btn-text">Sign up</span>
-                    <span class="btn-spinner" style="display: none;">
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="32" stroke-dashoffset="32">
-                          <animateTransform attributeName="transform" type="rotate" values="0 10 10;360 10 10" dur="1s" repeatCount="indefinite"/>
-                        </circle>
-                      </svg>
-                    </span>
-                  </button>
-                  <p id="legal-note" class="legal-note">
-                    By signing up, you agree to receive automated texts. Msg/data rates may apply. Reply <strong>STOP</strong> to opt out. 
-                    <a href="#terms" target="_blank">Terms</a> · <a href="#privacy" target="_blank">Privacy</a>
-                  </p>
-                  <p class="alt-signup">Prefer SMS? Text <strong>JOIN</strong> to (920) 415-6044.</p>
-                </form>
-
-                <div class="success-state" id="success-state" style="display: none;">
-                  <div class="success-content">
-                    <svg class="success-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <circle cx="12" cy="12" r="12" fill="#468F95"/>
-                      <path d="m8 12 2 2 4-4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <p>You're in! We texted you a link to confirm.</p>
-                  </div>
-                  <div class="success-actions">
-                    <button class="btn btn-ghost" id="open-messages">Open Messages</button>
-                    <button class="btn btn-ghost" id="add-wallet">Add to Wallet</button>
-                  </div>
-                </div>
-              </div>
+            <div style="margin-top: auto; padding-top: 2rem;">
+              <a href="https://www.google.com/maps?q=Funky+Franks+Kimberly+WI" target="_blank" class="btn"
+                style="width: 100%; background: #151630; color: #fff; border: none; padding:1rem; border-radius:12px; display:block; text-align:center; text-decoration:none; font-weight:800;">Get
+                Directions</a>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section class="cta-band" aria-label="Order online">
-        <div class="container cta-stack">
-          <h2 class="cta-title">Hungry? We’re ready when you are.</h2>
-          <p class="cta-sub">Order online—ready in minutes.</p>
-          <div class="cta-actions">
-            <a class="btn-primary" href="https://funkyfrankswi.com/order/funkyfranks" target="_blank" rel="noopener" aria-label="Order online for pickup">Order Now</a>
-            <a class="link-secondary" href="menu.html">View Menu</a>
+          <!-- Box 3: Italian Beef -->
+          <div class="bento-card b-med reveal">
+            <h2 class="bento-title" style="font-size: 2.2rem;">Chicago Italian Beef</h2>
+            <p style="font-weight: 600;">Slow-roasted, thinly sliced, and dipped in au jus. Get it sweet, hot, or
+              dipped.</p>
+            <div style="margin-top: 1rem; font-size: 2.5rem;"><i class="fa-solid fa-bread-slice"></i></div>
           </div>
-        </div>
-      </section>
-    </main>
 
-    <footer class="site-footer" aria-label="Footer">
-      <div class="container foot-grid">
-       
-        <div class="foot-col visit">
-          <h3>Visit</h3>
-          <p><a href="https://www.google.com/maps?q=700+Schelfhout+Lane+Suite+A,+Kimberly,+WI+54136" target="_blank" rel="noopener">700 Schelfhout Ln, Suite A, Kimberly, WI 54136</a></p>
-          <p><a href="tel:+19204156044">(920) 415‑6044</a></p>
-          <p id="foot-open" class="foot-open">Open today: 11:00 AM–7:00 PM</p>
-        </div>
-        <div class="foot-col links">
-          <h3>Links</h3>
-          <ul>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="https://funkyfrankswi.com/order/funkyfranks" target="_blank" rel="noopener">Order Now</a></li>
-            <li><a href="#rewards">Rewards</a></li>
-            <li><a href="#faq">FAQ</a></li>
-          </ul>
-        </div>
-        <div class="foot-col follow">
-          <h3>Follow</h3>
-          <ul>
-            <li><a href="https://www.google.com/maps/place/Funky+Franks" target="_blank" rel="noopener">Google Maps / Reviews</a></li>
-          </ul>
+          <!-- Box 4: Loaded Fries -->
+          <div class="bento-card b-med-2 reveal">
+            <h2 class="bento-title" style="font-size: 2.2rem;">Loaded Fries</h2>
+            <p style="opacity: 0.9; font-weight: 600;">Fresh potatoes, seasoned perfectly and topped with everything you
+              crave.</p>
+            <div style="text-align: right; margin-top: 1rem;">
+              <span style="font-size: 2.5rem;"><i class="fa-solid fa-utensils"></i></span>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="container foot-bottom">
-        <p>© <span id="year"></span> Funky Franks — Kimberly</p>
-        <nav class="legal-nav" aria-label="Legal">
-          <a href="https://pos.toasttab.com/terms-of-service" target="_blank" rel="noopener">Terms of Service</a>
-          <a href="https://pos.toasttab.com/privacy" target="_blank" rel="noopener">Privacy</a>
-        </nav>
-      </div>
-    </footer>
-
-    <div class="mobile-order-bar" role="region" aria-label="Quick order">
-      <div class="row">
-        <a class="btn-primary" href="https://funkyfrankswi.com/order/funkyfranks" target="_blank" rel="noopener" aria-label="Order online for pickup">Order Now</a>
-      </div>
+    </section>
     </div>
 
-    <a href="https://funkyfrankswi.com/order/funkyfranks" target="_blank" rel="noopener" class="floating-order-cta" aria-label="Order online for pickup">
-      Order Now
-    </a>
+    <!-- Visual Break / Ingredients Parallax -->
+    <section class="ingredients-parallax">
+      <div class="floating-ing" style="top: 15%; left: 8%; transform: rotate(-15deg);">Mustard</div>
+      <div class="floating-ing" style="top: 25%; right: 12%; transform: rotate(10deg);">Relish</div>
+      <div class="floating-ing" style="bottom: 20%; left: 18%; transform: rotate(-5deg);">Onions</div>
+      <div class="floating-ing" style="bottom: 15%; right: 8%; transform: rotate(20deg);">Sport Peppers</div>
+      <div class="floating-ing" style="top: 50%; left: 45%; transform: rotate(5deg); opacity: 0.1;">Celery Salt</div>
 
-    <script src="script.js"></script>
-  </body>
-  </html>
+      <div class="ing-text reveal">
+        <h2>Flavor Without<br>Compromise.</h2>
+        <p
+          style="font-weight: 800; font-size: 1.4rem; margin-top: 1rem; text-transform: uppercase; letter-spacing: 2px;">
+          No fillers. Just funk.</p>
+      </div>
+    </section>
+
+    <!-- SEO FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-heading-wrap reveal" style="text-align:center; margin-bottom:4rem;">
+          <p style="color:#DA0F32; font-weight:800; text-transform:uppercase; letter-spacing:2px;">Common Questions</p>
+          <h2 style="font-family:'Bricolage Grotesque'; font-size:3rem; margin-top:0.5rem;">Hot Dog FAQ</h2>
+        </div>
+
+        <div class="faq-grid">
+          <details class="faq-item reveal">
+            <summary>Do you use 100% beef hot dogs?</summary>
+            <div class="faq-content">
+              Yes! We exclusively serve 100% Vienna Beef hot dogs. No fillers, no artificial colors, and no compromise
+              on quality. It's the same legendary beef served in the best Chicago hot dog stands.
+            </div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>Where is Funky Franks located?</summary>
+            <div class="faq-content">
+              We are located at 700 Schelfhout Lane, Suite A, Kimberly, WI 54136. We're right in the heart of the
+              village, serving the entire Fox Valley area including Appleton, Kaukauna, and Little Chute.
+            </div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>Do you offer online ordering for pickup?</summary>
+            <div class="faq-content">
+              Absolutely! You can order directly through our website for fast pickup. Most orders are ready in about 10
+              minutes. Click any of our "Order Online" buttons to get started.
+            </div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>What are your most popular menu items?</summary>
+            <div class="faq-content">
+              Our #1 seller is the classic Chicago Frank, followed closely by the Cowboy Frank (topped with BBQ and
+              crispy onions) and our signature Loaded Fries. Don't forget to try our Italian Beef sandwich—it's a local
+              favorite!
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rewards / CTA -->
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-row" style="flex-direction: column; gap: 2rem; padding: 0; text-align:center;">
+          <h2 class="cta-title">Stay Funky, Get Rewarded.</h2>
+          <p class="cta-subline"
+            style="max-width: 700px; margin: 0 auto; color: rgba(21, 22, 48, 0.7); font-size: 1.3rem; font-weight: 700;">
+            Join the Funky Fam Rewards program. Earn points on every frank and get a free dog on your birthday!
+          </p>
+          <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin-top:1rem;">
+            <a href="https://funkyfrankswi.com/order/funkyfranks" class="btn"
+              style="font-size: 1.4rem; padding: 1.2rem 3rem; background: #DA0F32; border: none; color: #fff; border-radius: 20px; text-decoration:none; font-weight:800;">Order
+              Now</a>
+            <a href="menu.html#rewards" class="btn"
+              style="font-size: 1.4rem; padding: 1.2rem 3rem; background: transparent; border: 3px solid #151630; color: #151630; border-radius: 20px; text-decoration:none; font-weight:800;">Join
+              Rewards</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location Section (ID for navigation) -->
+    <div id="location"></div>
+
+  </main>
+
+  <footer class="site-footer" aria-label="Footer" style="background: #FBFAEA; border-top: 4px solid #151630;">
+    <div class="container foot-grid">
+      <div class="foot-col visit">
+        <h3 style="color: #DA0F32; font-weight: 900;">Find Us</h3>
+        <p style="font-weight: 800; color: #151630;">700 Schelfhout Ln, Suite A<br>Kimberly, WI 54136</p>
+        <p><a href="tel:+19204156044" style="color: #151630; font-weight: 900; text-decoration: none;">(920)
+            415‑6044</a></p>
+      </div>
+      <div class="foot-col links">
+        <h3 style="color: #DA0F32; font-weight: 900;">Quick Links</h3>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="menu.html" style="color: #151630; font-weight: 700; text-decoration: none;">Full Menu</a></li>
+          <li><a href="https://funkyfrankswi.com/order/funkyfranks"
+              style="color: #151630; font-weight: 700; text-decoration: none;">Order Online</a></li>
+          <li><a href="#location" style="color: #151630; font-weight: 700; text-decoration: none;">Store Hours</a></li>
+        </ul>
+      </div>
+      <div class="foot-col follow">
+        <h3 style="color: #DA0F32; font-weight: 900;">Connect</h3>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="#" style="color: #151630; font-weight: 700; text-decoration: none;"><i
+                class="fa-brands fa-instagram"></i> Instagram</a></li>
+          <li><a href="#" style="color: #151630; font-weight: 700; text-decoration: none;"><i
+                class="fa-brands fa-facebook"></i> Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container foot-bottom" style="border-top: 1px solid rgba(21,22,48,0.1); padding: 2rem 0;">
+      <p style="font-weight: 700; color: rgba(21,22,48,0.6);">© <span id="year">2026</span> Funky Franks Kimberly.</p>
+      <nav class="legal-nav" style="display: flex; gap: 1rem;">
+        <a href="#" style="color: rgba(21,22,48,0.6); font-weight: 700;">Privacy</a>
+        <a href="#" style="color: rgba(21,22,48,0.6); font-weight: 700;">Terms</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script>
+    // 3D Tilt Effect for Hero - REMOVED
+
+    // Open Status Logic
+    (function () {
+      const el = document.getElementById('index-open-status');
+      if (!el) return;
+      const now = new Date();
+      const hour = now.getHours();
+      const day = now.getDay();
+      // Simple logic: Mon-Sat 11-7, Sun 11-6
+      let isOpen = false;
+      if (day === 0) { // Sunday
+        isOpen = (hour >= 11 && hour < 18);
+      } else { // Mon-Sat
+        isOpen = (hour >= 11 && hour < 19);
+      }
+
+      if (isOpen) {
+        el.textContent = "Open Now • Closes " + (day === 0 ? "6PM" : "7PM");
+        el.style.background = "#d1fae5";
+        el.style.color = "#065f46";
+      } else {
+        el.textContent = "Closed • Opens 11AM";
+        el.style.background = "#fee2e2";
+        el.style.color = "#991b1b";
+      }
+    })();
+  </script>
+</body>
+
+</html>
