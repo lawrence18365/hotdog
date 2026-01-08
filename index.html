@@ -512,37 +512,68 @@
     }
 
     .ingredients-parallax {
-      min-height: 70vh;
-      background: #468F95;
+      padding: 12rem 0 10rem;
+      background-color: #151630;
+      background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
       position: relative;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       overflow: hidden;
       color: #fff;
       text-align: center;
-      border-radius: 100px 100px 0 0;
-      margin-top: -50px;
+      border-radius: 60px 60px 0 0;
+      margin-top: -60px; /* Organic overlap */
+      z-index: 20; /* Sit above the bento blobs */
+      box-shadow: 0 -10px 40px rgba(0,0,0,0.2);
+    }
+
+    .ing-text {
+      position: relative;
+      z-index: 5;
+      padding: 0 2rem;
     }
 
     .ing-text h2 {
-      font-family: "Fredoka One";
-      font-size: clamp(3.5rem, 8vw, 6rem);
-      margin: 0;
-      text-shadow: 6px 6px 0 #151630;
-      line-height: 1;
-      position: relative;
-      z-index: 5;
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-weight: 900;
+      font-size: clamp(4rem, 12vw, 8rem);
+      margin: 0 0 3rem;
+      line-height: 0.85;
+      text-transform: uppercase;
+      color: #FBFAEA;
+      letter-spacing: -0.02em;
+    }
+
+    .ing-text h2 span {
+      display: block;
+      color: #DA0F32;
+      text-shadow: 4px 4px 0 #151630;
+    }
+
+    .ing-badge {
+      display: inline-block;
+      color: #151630;
+      padding: 1rem 3rem;
+      font-family: "Permanent Marker", cursive;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      text-transform: uppercase;
+      background: #FCE254;
+      /* Funky uneven paper shape */
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+      transform: rotate(-3deg);
+      transition: transform 0.3s ease;
+      border: none;
+    }
+
+    .ing-badge:hover {
+      transform: rotate(2deg) scale(1.05);
     }
 
     .floating-ing {
-      position: absolute;
-      font-family: "Bricolage Grotesque";
-      font-size: clamp(3rem, 6vw, 6rem);
-      font-weight: 900;
-      color: rgba(255, 255, 255, 0.15);
-      text-transform: uppercase;
-      pointer-events: none;
+      display: none;
     }
 
     .faq-section {
@@ -912,17 +943,9 @@
 
     <!-- Visual Break / Ingredients Parallax -->
     <section class="ingredients-parallax">
-      <div class="floating-ing" style="top: 15%; left: 8%; transform: rotate(-15deg);">Mustard</div>
-      <div class="floating-ing" style="top: 25%; right: 12%; transform: rotate(10deg);">Relish</div>
-      <div class="floating-ing" style="bottom: 20%; left: 18%; transform: rotate(-5deg);">Onions</div>
-      <div class="floating-ing" style="bottom: 15%; right: 8%; transform: rotate(20deg);">Sport Peppers</div>
-      <div class="floating-ing" style="top: 50%; left: 45%; transform: rotate(5deg); opacity: 0.1;">Celery Salt</div>
-
       <div class="ing-text reveal">
-        <h2>Flavor Without<br>Compromise.</h2>
-        <p
-          style="font-weight: 800; font-size: 1.4rem; margin-top: 1rem; text-transform: uppercase; letter-spacing: 2px;">
-          No fillers. Just funk.</p>
+        <h2>Flavor Without <span>Compromise.</span></h2>
+        <div class="ing-badge">No fillers. Just funk.</div>
       </div>
     </section>
 
