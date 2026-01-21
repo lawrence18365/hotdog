@@ -843,7 +843,7 @@
             </h1>
             <p class="hero-desc">
               We’re redefining the hot dog game in Kimberly. 100% Vienna Beef, piled high with fresh ingredients, served
-              on a poppy seed bun. It’s not just lunch; it’s a lifestyle.
+              on a regular bun. Chicago franks come on a steamed S. Rosen's bun. It’s not just lunch; it’s a lifestyle.
             </p>
             <div class="cta-group">
               <a href="menu.html" class="btn-hero-xl">
@@ -860,7 +860,7 @@
             <div class="hero-card-wrap" id="tilt-card">
               <!-- Floating badges with high z-index -->
               <div class="float-badge badge-beef">100%<br>Beef</div>
-              <div class="float-badge badge-open">Open<br>Daily</div>
+              <div class="float-badge badge-open">Open<br>Mon-Sat</div>
 
               <!-- Card Image -->
               <div class="hero-img-card">
@@ -930,8 +930,8 @@
                 Staple</span>
               <h2 class="bento-title">Authentic Chicago Style</h2>
               <p style="font-size: 1.3rem; font-weight: 600; max-width: 45ch; opacity: 0.95;">
-                Dragged through the garden. Poppy seed bun, neon green relish, diced onions, tomato wedges, pickle
-                spear, sport peppers, and celery salt.
+                Dragged through the garden. Steamed S. Rosen's bun, neon green relish, diced onions, tomato wedges,
+                pickle spear, sport peppers, and celery salt.
               </p>
             </div>
             <div style="margin-top: 2rem;">
@@ -960,10 +960,6 @@
                     <td style="font-weight: 800;">Mon - Sat</td>
                     <td style="text-align: right;">11:00 AM – 7:00 PM</td>
                   </tr>
-                  <tr>
-                    <td style="font-weight: 800;">Sunday</td>
-                    <td style="text-align: right;">11:00 AM – 6:00 PM</td>
-                  </tr>
                 </tbody>
               </table>
             </div>
@@ -977,8 +973,7 @@
           <!-- Box 3: Italian Beef -->
           <div class="bento-card b-med reveal">
             <h2 class="bento-title" style="font-size: 2.2rem;">Chicago Italian Beef</h2>
-            <p style="font-weight: 600;">Slow-roasted, thinly sliced, and dipped in au jus. Get it sweet, hot, or
-              dipped.</p>
+            <p style="font-weight: 600;">Slow-roasted, thinly sliced, with au jus. Get it mild or hot.</p>
             <div style="margin-top: 1rem; font-size: 2.5rem;"><i class="fa-solid fa-bread-slice"></i></div>
           </div>
 
@@ -1121,20 +1116,16 @@
       const now = new Date();
       const hour = now.getHours();
       const day = now.getDay();
-      // Simple logic: Mon-Sat 11-7, Sun 11-6
-      let isOpen = false;
-      if (day === 0) { // Sunday
-        isOpen = (hour >= 11 && hour < 18);
-      } else { // Mon-Sat
-        isOpen = (hour >= 11 && hour < 19);
-      }
+      // Simple logic: Mon-Sat 11-7, Sun closed
+      const isSunday = day === 0;
+      const isOpen = !isSunday && (hour >= 11 && hour < 19);
 
       if (isOpen) {
-        el.textContent = "Open Now • Closes " + (day === 0 ? "6PM" : "7PM");
+        el.textContent = "Open Now • Closes 7PM";
         el.style.background = "#d1fae5";
         el.style.color = "#065f46";
       } else {
-        el.textContent = "Closed • Opens 11AM";
+        el.textContent = isSunday ? "Closed Today" : "Closed • Opens 11AM";
         el.style.background = "#fee2e2";
         el.style.color = "#991b1b";
       }

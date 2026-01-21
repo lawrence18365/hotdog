@@ -48,9 +48,9 @@ document.getElementById('year').textContent = new Date().getFullYear();
     const now = new Date();
     const day = now.getDay(); // 0 Sun – 6 Sat
     const hour = now.getHours();
-    // Rough schedule: Mon–Sat 11–19, Sun 11–18 (if closed Sundays, this will say closed)
+    // Rough schedule: Mon–Sat 11–19, Sunday closed
     const openHour = 11;
-    const closeHour = (day === 0) ? 18 : 19;
+    const closeHour = 19;
     const isOpen = hour >= openHour && hour < closeHour && day !== 0; // default: closed Sundays
     const closeLabel = (closeHour % 12 || 12) + ':00 ' + (closeHour >= 12 ? 'PM' : 'AM');
     el.textContent = isOpen ? `Open now • Closes at ${closeLabel}` : 'Closed right now';
@@ -351,16 +351,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 // Footer "Open today" helper based on hours table
 (function footerOpenToday(){
   const el = document.getElementById('foot-open');
-  const rows = document.querySelectorAll('.hours-table tbody tr');
-  if (!el || !rows.length) return;
+  if (!el) return;
   try {
     const now = new Date();
     const day = now.getDay(); // 0 Sun – 6 Sat
-    const openHour = 11, closeHour = (day === 0) ? 19 : 19; // default: 11–19, Sun closed
-    const isSunday = day === 0;
-    if (isSunday) { el.textContent = 'Open today: Closed'; return; }
-    const closeLabel = (closeHour % 12 || 12) + ':00 PM';
-    el.textContent = `Open today: 11:00 AM–${closeLabel}`;
+    if (day === 0) { el.textContent = 'Open today: Closed'; return; }
+    el.textContent = 'Open today: 11:00 AM-7:00 PM';
   } catch {}
 })();
 
